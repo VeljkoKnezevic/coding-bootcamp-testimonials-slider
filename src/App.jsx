@@ -1,35 +1,73 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import Tanya from "../images/image-tanya.jpg";
+import John from "../images/image-john.jpg";
+import Prev from "../images/icon-prev.svg";
+import Next from "../images/icon-next.svg";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [showFirst, setShowFirst] = useState(true);
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+    <Swiper>
+      <SwiperSlide>
+        <h1 className="visuallyhidden">Coding Bootcamp testimonials</h1>
+        {showFirst ? (
+          <div className="first">
+            <div>
+              <img src={Tanya} alt="Tanya Sinclair" />
+              <button onClick={() => setShowFirst(!showFirst)} type="button">
+                <img src={Prev} alt="Previous slide" />
+              </button>
+              <button onClick={() => setShowFirst(!showFirst)} type="button">
+                <img src={Next} alt="Next slide" />
+              </button>
+            </div>
+            <figure>
+              <blockquote>
+                <p>
+                  “ I&apos;ve been interested in coding for a while but never
+                  taken the jump, until now. I couldn&apos;t recommend this
+                  course enough. I&apos;m now in the job of my dreams and so
+                  excited about the future. ”
+                </p>
+              </blockquote>
+              <figcaption>
+                <h2>Tanya Sinclair</h2>
+                <p>UX Engineer</p>
+              </figcaption>
+            </figure>
+          </div>
+        ) : (
+          <div className="second">
+            <div>
+              <img src={John} alt="Tanya Sinclair" />
+              <button onClick={() => setShowFirst(!showFirst)} type="button">
+                <img src={Prev} alt="Previous slide" />
+              </button>
+              <button onClick={() => setShowFirst(!showFirst)} type="button">
+                <img src={Next} alt="Next slide" />
+              </button>
+            </div>
+            <figure>
+              <blockquote>
+                <p>
+                  “ If you want to lay the best foundation possible I&apos;d
+                  recommend taking this course. The depth the instructors go
+                  into is incredible. I now feel so confident about starting up
+                  as a professional developer. ”
+                </p>
+              </blockquote>
+              <figcaption>
+                <h2>John Tarkpor</h2>
+                <p>Junior Front-end Developer</p>
+              </figcaption>
+            </figure>
+          </div>
+        )}
+      </SwiperSlide>
+    </Swiper>
+  );
 }
 
-export default App
+export default App;
