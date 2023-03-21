@@ -1,0 +1,20 @@
+@use "../utils/" as u;
+
+.cards {
+  @include u.breakpoint(xlarge) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .image {
+    order: 2;
+  }
+
+  .curve {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+}

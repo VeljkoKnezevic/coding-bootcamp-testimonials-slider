@@ -1,0 +1,53 @@
+@use "../utils/" as u;
+
+.image {
+  margin: u.rem(24) u.rem(24) u.rem(32);
+  padding: u.rem(30) u.rem(36) u.rem(25);
+  background-image: url(../../images/pattern-bg.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  z-index: 0;
+
+  @include u.breakpoint(xlarge) {
+    padding: u.rem(63) u.rem(70) u.rem(50) 0;
+  }
+
+  &__photo {
+    width: u.rem(254);
+    height: u.rem(253);
+    margin-inline: auto;
+
+    @include u.breakpoint(xlarge) {
+      width: u.rem(540);
+      height: u.rem(540);
+    }
+  }
+
+  &__buttons {
+    background: var(--white);
+    box-shadow: 0px 15px 20px -10px rgba(36, 36, 113, 0.0991313);
+    border-radius: 28px;
+    width: fit-content;
+    position: absolute;
+    bottom: calc(25px - 20px);
+    left: 50%;
+    transform: translate(-50%);
+
+    @include u.breakpoint(xlarge) {
+      bottom: calc(50px - 20px);
+      left: calc(62px + 56px);
+    }
+  }
+
+  &__button {
+    background: none;
+    border: none;
+    padding: u.rem(11) u.rem(13.5);
+
+    @include u.breakpoint(xlarge) {
+      padding: u.rem(19) u.rem(21.5);
+    }
+  }
+}

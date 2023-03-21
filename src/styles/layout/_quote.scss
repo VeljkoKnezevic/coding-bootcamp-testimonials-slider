@@ -1,0 +1,55 @@
+@use "../utils/" as u;
+
+.quote {
+  padding-inline: u.rem(32);
+  text-align: center;
+  background-image: url(../../images/pattern-quotes.svg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  padding-block-start: u.rem(25);
+
+  @include u.breakpoint(xlarge) {
+    background-position: top left 96px;
+    padding-block-start: u.rem(56) !important;
+    max-width: u.rem(635);
+    padding: 0;
+    text-align: start;
+    margin-inline-end: u.rem(-90);
+    position: relative;
+  }
+
+  &__para {
+    color: var(--para);
+  }
+
+  &__caption {
+    @include u.breakpoint(xlarge) {
+      display: flex;
+      align-items: center;
+      gap: u.rem(10);
+      margin-block-start: u.rem(32);
+    }
+  }
+
+  &__name {
+    margin-block-start: u.rem(19);
+    color: var(--para);
+
+    @include u.breakpoint(xlarge) {
+      margin-block-start: 0;
+    }
+  }
+
+  &__title {
+    color: #b9b9ce;
+    font-family: u.$font;
+    font-weight: 500;
+    font-size: u.rem(15);
+    line-height: u.rem(20);
+
+    @include u.breakpoint(xlarge) {
+      font-size: u.rem(20);
+      line-height: u.rem(38);
+    }
+  }
+}

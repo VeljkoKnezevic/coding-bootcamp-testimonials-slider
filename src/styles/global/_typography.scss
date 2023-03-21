@@ -1,0 +1,56 @@
+@use "../utils/" as u;
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+
+//for h1
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: clamp(u.rem(15), u.rem(10) + 1vw, u.rem(20));
+  line-height: u.rem(20);
+
+  @include u.breakpoint(large) {
+    line-height: u.rem(38);
+  }
+}
+
+p {
+  margin: 0;
+  font-weight: 300;
+  font-size: u.rem(18);
+  line-height: u.rem(24);
+
+  @include u.breakpoint(large) {
+    line-height: u.rem(44);
+    font-size: u.rem(32);
+  }
+}
+
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+}
